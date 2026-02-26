@@ -123,6 +123,14 @@
         "documentation": {}
     },
     {
+        "label": "FastMCP",
+        "importPath": "fastmcp",
+        "description": "fastmcp",
+        "isExtraImport": true,
+        "detail": "fastmcp",
+        "documentation": {}
+    },
+    {
         "label": "aiosqlite",
         "kind": 6,
         "isExtraImport": true,
@@ -552,6 +560,15 @@
         "description": "main",
         "peekOfCode": "mcp = FastMCP(\"Remote-ExpenseTracker\")\ndef init_db():  # Keep as sync for initialization\n    try:\n        # Use synchronous sqlite3 just for initialization\n        import sqlite3\n        with sqlite3.connect(DB_PATH) as c:\n            c.execute(\"PRAGMA journal_mode=WAL\")\n            c.execute(\"\"\"\n                CREATE TABLE IF NOT EXISTS expenses(\n                    id INTEGER PRIMARY KEY AUTOINCREMENT,",
         "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "mcp",
+        "kind": 5,
+        "importPath": "proxy",
+        "description": "proxy",
+        "peekOfCode": "mcp = FastMCP.as_proxy(\n    \"https://splendid-gold-dingo.fastmcp.app/mcp\",  # Standard FastMCP Cloud URL\n    name=\"Nitish Server Proxy\"\n)\nif __name__ == \"__main__\":\n    # This runs via STDIO, which Claude Desktop can connect to\n    mcp.run()",
+        "detail": "proxy",
         "documentation": {}
     },
     {

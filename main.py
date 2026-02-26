@@ -35,8 +35,6 @@ def init_db():  # Keep as sync for initialization
         print(f"Database initialization error: {e}")
         raise
 
-# Initialize database synchronously at module load
-init_db()
 
 @mcp.tool()
 async def add_expense(date, amount, category, subcategory="", note=""):  # Changed: added async
@@ -128,5 +126,6 @@ def categories():
 
 # Start the server
 if __name__ == "__main__":
+    init_db()
     mcp.run(transport="http", host="0.0.0.0", port=8000, cors=True)
     # mcp.run()
